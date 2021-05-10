@@ -1,18 +1,13 @@
 using MadPay724.Data.DatabaseContext;
-using MadPay724.Data.Infrastructure;
+using MadPay724.Repository.Infrastructure;
+using MadPay724.Services.Site.Admin.Auth.Interface;
+using MadPay724.Services.Site.Admin.Auth.Servcie;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MadPay724.Presentation
 {
@@ -36,6 +31,7 @@ namespace MadPay724.Presentation
             });
             services.AddCors();
             services.AddScoped<IUnitOfWork<AppDbContext>, UnitOfWork<AppDbContext>>();
+            services.AddScoped<IAuthServcie, AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
