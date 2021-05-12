@@ -16,8 +16,7 @@ namespace MadPay724.Services.Site.Admin.Auth.Servcie
         }
         public async Task<User> Register(User user, string password)
         {
-            byte[] passwordHash, passwordSalt;
-            Utilities.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            Utilities.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
